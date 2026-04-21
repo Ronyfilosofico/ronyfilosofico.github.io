@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rony Contreras | Prod. Audiovisual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #ffca01;
+  --gold-dim: rgba(255,202,1,0.18);
+  --gold-hover: #ffe14d;
+  --black: #0a0a0a;
+  --white: #f5f4f0;
+  --light: rgba(255,255,255,0.45);
+  --lighter: rgba(255,255,255,0.18);
+  --border: rgba(255,255,255,0.08);
+  --surface: rgba(255,255,255,0.04);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  min-height: 100vh;
+  background: var(--black);
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 52px 20px 64px;
+  position: relative;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 10%, rgba(255,202,1,0.04) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 85%, rgba(255,202,1,0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+.container {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* LOGO */
+.logo-wrap {
+  width: 210px; height: 78px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.09);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 22px;
+  background: rgba(255,255,255,0.02);
+  overflow: hidden;
+}
+.logo-wrap img { width: 190px; height: 68px; object-fit: contain; }
+
+/* HEADER */
+.name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 26px; font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.01em;
+  text-align: center;
+  margin-bottom: 4px;
+}
+.role {
+  font-size: 11px; font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.2em; text-transform: uppercase;
+  text-align: center; margin-bottom: 6px;
+}
+.location {
+  font-size: 12px; color: var(--lighter);
+  text-align: center; margin-bottom: 36px;
+  display: flex; align-items: center; gap: 6px; justify-content: center;
+}
+.location::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+/* DIVIDER */
+.divider {
+  width: 40px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 32px;
+}
+
+/* SECTION LABEL */
+.section-label {
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold);
+  width: 100%; text-align: left;
+  margin-bottom: 10px; margin-top: 26px;
+  padding-left: 2px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-label::after {
+  content: "";
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, rgba(255,202,1,0.3), transparent);
+}
+
+/* LINK BUTTONS */
+.link-btn {
+  display: flex; align-items: center;
+  width: 100%; padding: 15px 18px;
+  margin-bottom: 10px; border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  position: relative; overflow: hidden; cursor: pointer;
+}
+.link-btn.primary {
+  background: var(--gold); border: 1px solid var(--gold);
+}
+.link-btn.primary .btn-label { color: #000; }
+.link-btn.primary .btn-sub   { color: rgba(0,0,0,0.55); }
+.link-btn.primary:hover { background: var(--gold-hover); transform: translateY(-1px); }
+.link-btn.primary .icon-wrap { background: rgba(0,0,0,0.1); }
+.link-btn.primary .arrow { color: rgba(0,0,0,0.4); }
+
+.link-btn.default {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.link-btn.default:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,202,1,0.25);
+  transform: translateY(-1px);
+}
+.link-btn.default .btn-label { color: var(--white); }
+.link-btn.default .btn-sub   { color: var(--light); }
+.link-btn.default .icon-wrap { background: rgba(255,255,255,0.05); }
+.link-btn.default .arrow { color: rgba(255,255,255,0.2); }
+
+.link-btn.whatsapp {
+  background: rgba(37,211,102,0.07);
+  border: 1px solid rgba(37,211,102,0.2);
+}
+.link-btn.whatsapp:hover {
+  background: rgba(37,211,102,0.13);
+  border-color: rgba(37,211,102,0.35);
+  transform: translateY(-1px);
+}
+.link-btn.whatsapp .btn-label { color: var(--white); }
+.link-btn.whatsapp .btn-sub   { color: var(--light); }
+.link-btn.whatsapp .icon-wrap { background: rgba(37,211,102,0.1); }
+.link-btn.whatsapp .arrow { color: rgba(255,255,255,0.2); }
+
+.link-btn.rental {
+  background: rgba(255,202,1,0.07);
+  border: 1px solid rgba(255,202,1,0.2);
+}
+.link-btn.rental:hover {
+  background: rgba(255,202,1,0.13);
+  border-color: rgba(255,202,1,0.4);
+  transform: translateY(-1px);
+}
+.link-btn.rental .btn-label { color: var(--white); }
+.link-btn.rental .btn-sub   { color: rgba(255,202,1,0.7); }
+.link-btn.rental .icon-wrap { background: rgba(255,202,1,0.1); }
+.link-btn.rental .arrow { color: rgba(255,202,1,0.4); }
+
+.icon-wrap {
+  width: 38px; height: 38px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-right: 14px;
+}
+.icon-wrap svg { width: 20px; height: 20px; }
+.btn-text { flex: 1; }
+.btn-label { font-size: 14px; font-weight: 500; display: block; line-height: 1.3; }
+.btn-sub   { font-size: 11px; display: block; margin-top: 2px; }
+.arrow { font-size: 16px; margin-left: 8px; flex-shrink: 0; }
+
+/* SOCIAL ROW */
+.social-row { display: flex; gap: 10px; width: 100%; margin-bottom: 10px; }
+.social-btn {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 14px 8px; border-radius: 12px;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: all 0.22s ease; gap: 6px;
+}
+.social-btn:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,202,1,0.25);
+  transform: translateY(-1px);
+}
+.social-btn svg { width: 20px; height: 20px; }
+.social-btn span { font-size: 10px; color: var(--lighter); letter-spacing: 0.05em; }
+
+/* SOYADO BOX */
+.soyado-box {
+  width: 100%; margin-bottom: 10px;
+  border: 1px solid rgba(255,202,1,0.2);
+  border-radius: 12px; overflow: hidden;
+}
+.soyado-header {
+  background: rgba(255,202,1,0.08);
+  padding: 12px 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.soyado-logo-sm { height: 32px; object-fit: contain; }
+.soyado-tagline { font-size: 11px; color: rgba(255,202,1,0.7); letter-spacing: 0.08em; }
+
+/* FOOTER */
+.footer {
+  margin-top: 44px; text-align: center;
+  font-size: 11px; color: var(--lighter);
+  letter-spacing: 0.05em; line-height: 1.7;
+}
+.footer strong { color: var(--gold); font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Logo -->
+  <div class="logo-wrap">
+    <img src="data:image/jpeg;base64,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" alt="Rony Filosofico">
+  </div>
+
+  <!-- Header -->
+  <h1 class="name">Rony Contreras</h1>
+  <p class="role">Productor Audiovisual</p>
+  <p class="location">Medell&iacute;n, Colombia</p>
+  <div class="divider"></div>
+
+  <!-- SERVICIOS -->
+  <p class="section-label">Servicios</p>
+
+  <a href="https://wa.me/573192941446?text=Hola%20Rony%2C%20quiero%20cotizar%20un%20servicio" class="link-btn primary" target="_blank" rel="noopener">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <line x1="16" y1="13" x2="8" y2="13"/>
+        <line x1="16" y1="17" x2="8" y2="17"/>
+      </svg>
+    </div>
+    <div class="btn-text">
+      <span class="btn-label">Cotizar un servicio</span>
+      <span class="btn-sub">Fotograf&iacute;a &middot; Video &middot; Retratos &middot; Deportivo</span>
+    </div>
+    <span class="arrow">&rarr;</span>
+  </a>
+
+  <a href="https://wa.me/573192941446?text=Hola%20Rony%2C%20quiero%20cotizar%20alquiler%20de%20equipos" class="link-btn whatsapp" target="_blank" rel="noopener">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 24 24" fill="#25D366">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </div>
+    <div class="btn-text">
+      <span class="btn-label">WhatsApp directo</span>
+      <span class="btn-sub">+57 319 294 1446 &middot; Respuesta r&aacute;pida</span>
+    </div>
+    <span class="arrow">&rarr;</span>
+  </a>
+
+  <!-- RENTAL -->
+  <p class="section-label">Alquiler de equipos</p>
+
+  <a href="https://ronyfilosofico.github.io/soyado.agencia/" class="link-btn rental" target="_blank" rel="noopener">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#ffca01" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="7" width="20" height="14" rx="2"/>
+        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+        <line x1="12" y1="12" x2="12" y2="16"/>
+        <line x1="10" y1="14" x2="14" y2="14"/>
+      </svg>
+    </div>
+    <div class="btn-text">
+      <span class="btn-label">Cotizar alquiler</span>
+      <span class="btn-sub">Ver cat&aacute;logo completo &middot; Flash &middot; LED &middot; Gimbals &middot; M&aacute;s</span>
+    </div>
+    <span class="arrow">&rarr;</span>
+  </a>
+
+  </div>
+
+  <!-- SOYADO BOX -->
+  <div class="soyado-box">
+    <div class="soyado-header">
+      <img class="soyado-logo-sm" src="data:image/jpeg;base64,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" alt="Soyado Agencia">
+      <span class="soyado-tagline">Agencia audiovisual &middot; Medell&iacute;n</span>
+    </div>
+  </div>
+
+  <!-- REDES -->
+  <p class="section-label">S&iacute;gueme</p>
+
+  <div class="social-row">
+    <a href="https://www.instagram.com/ronyfilosofico" class="social-btn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+      </svg>
+      <span>Instagram</span>
+    </a>
+    <a href="https://www.tiktok.com/@ronyfilosofico" class="social-btn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="white">
+        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/>
+      </svg>
+      <span>TikTok</span>
+    </a>
+    <a href="https://www.youtube.com/@ronyfilosofico" class="social-btn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="white">
+        <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+      </svg>
+      <span>YouTube</span>
+    </a>
+    <a href="https://www.facebook.com/ronyfilosofico" class="social-btn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="white">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      </svg>
+      <span>Facebook</span>
+    </a>
+  </div>
+
+  <!-- CONTENIDO -->
+  <p class="section-label">Contenido</p>
+
+  <a href="https://www.youtube.com/@ronyfilosofico" class="link-btn default" target="_blank" rel="noopener">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 24 24" fill="white">
+        <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+      </svg>
+    </div>
+    <div class="btn-text">
+      <span class="btn-label">Canal de YouTube</span>
+      <span class="btn-sub">Detr&aacute;s de c&aacute;maras &middot; Tutoriales &middot; Sesiones</span>
+    </div>
+    <span class="arrow">&rarr;</span>
+  </a>
+
+  <a href="https://www.instagram.com/ronyfilosofico" class="link-btn default" target="_blank" rel="noopener">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+      </svg>
+    </div>
+    <div class="btn-text">
+      <span class="btn-label">@ronyfilosofico</span>
+      <span class="btn-sub">Reels &middot; Contenido &middot; Portafolio visual</span>
+    </div>
+    <span class="arrow">&rarr;</span>
+  </a>
+
+  <!-- Footer -->
+  <p class="footer">
+    Rony Contreras &middot; Prod. Audiovisual &middot; Medell&iacute;n<br>
+    <strong>Soyado Agencia</strong> &middot; <span style="color:rgba(255,255,255,0.12)">&copy; 2025</span>
+  </p>
+
+</div>
+</body>
+</html>
